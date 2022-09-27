@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
-sudo su
 ufw allow 5432
-apt-get update -y
-apt-get upgrade -y
-apt-get install net-tools nmap mc -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install net-tools nmap mc -y
 
 echo "host  all        all        all        md5" >> /opt/bitnami/postgresql/conf/pg_hba.conf
 
