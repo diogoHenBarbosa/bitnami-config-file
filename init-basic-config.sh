@@ -33,12 +33,12 @@ function credentials(){
 }
 
 function main(){
-  attEinstallDep()
-  confArquivos()
-  habilitandoFirewall()
-  restServidor()
-  credentials()
+  attEinstallDep
+  confArquivos
+  habilitandoFirewall
+  restServidor
+  credentials
   exit
 }
 
-main()
+main
