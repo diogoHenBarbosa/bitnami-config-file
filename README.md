@@ -7,7 +7,7 @@ Para isso devemos instalar o seguintes programas:
 **VMWare**
 > https://www.vmware.com
 
-** VM - Bitnami - Fatec **
+**VM - Bitnami - Fatec**
 > Ainda vou fazer o upload
 
 ## Recomendações
