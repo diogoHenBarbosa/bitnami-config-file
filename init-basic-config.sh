@@ -29,6 +29,9 @@ function restServidor(){
 function credentials(){
   echo "Vai ficar nesta tela por 60 segundos!"
   cat /home/bitnami/bitnami_credentials
+  echo "--------------------------------------------------------------"
+  echo "------------------------- Seu IP -----------------------------"
+  ifoconfig
   sleep 60
 }
 
