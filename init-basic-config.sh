@@ -31,7 +31,7 @@ function credentials(){
   cat /home/bitnami/bitnami_credentials
   echo "--------------------------------------------------------------"
   echo "------------------------- Seu IP -----------------------------"
-  ifoconfig
+  sudo ifconfig
   sleep 60
 }
 
