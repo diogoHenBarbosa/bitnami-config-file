@@ -9,8 +9,8 @@ function attEinstallDep(){
 
 function confArquivos(){
   echo "Conf. os arquivos"
-  sudo cp postgresql.conf /opt/bitnami/postgresql/conf/pg_hba.conf
-  sudo cp postgresql.conf /opt/bitnami/postgresql/conf/postgresql.conf
+  sudo cp ./conf/postgresql.conf /opt/bitnami/postgresql/conf/pg_hba.conf
+  sudo cp i/conf/postgresql.conf /opt/bitnami/postgresql/conf/postgresql.conf
   sleep 5
   clear
 }
