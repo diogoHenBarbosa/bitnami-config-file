@@ -23,7 +23,8 @@ function habilitandoFirewall(){
 
 function restServidor(){
   echo "Rest. Servidor"
-  service bitnami restart postgresql
+  sudo service bitnami restart postgresql
+  sleep 10
   clear
 }
 function credentials(){
