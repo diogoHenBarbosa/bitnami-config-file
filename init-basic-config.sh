@@ -9,7 +9,7 @@ function attEinstallDep(){
 
 function confArquivos(){
   echo "Conf. os arquivos"
-  echo "host  all        all        all        md5" >> /opt/bitnami/postgresql/conf/pg_hba.conf
+  sudo cp postgresql.conf /opt/bitnami/postgresql/conf/pg_hba.conf
   sudo cp postgresql.conf /opt/bitnami/postgresql/conf/postgresql.conf
   sleep 5
   clear
