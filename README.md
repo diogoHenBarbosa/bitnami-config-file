@@ -8,7 +8,7 @@ Para isso devemos instalar o seguintes programas:
 > https://www.vmware.com
 
 **VM - Bitnami - Fatec**
-> Ainda vou fazer o upload
+> https://fatecspgov-my.sharepoint.com/:u:/g/personal/diogo_barbosa4_fatec_sp_gov_br/EQytHfNn3XNIqygN4V7OCgABO1iatjOFTBfP6RrULbfKZw?e=W0y5ZU
 
 ## Recomendações
 
