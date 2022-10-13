@@ -16,7 +16,7 @@ Para isso devemos instalar o seguintes programas:
 
 - Não recomendo executar em ambiente de produção, o script habilita que qualquer máquina tenha acesso ao servidor do banco de dados.
 
-- Não recomendo executar em uma máquina já criada, use ele em uma vm "virgem"
+- Pode exec. em uma vm prota. Se houver alguma duvida sobre ip ou se as permições estão de acordo
 
 ### Modo de Exec.
 
