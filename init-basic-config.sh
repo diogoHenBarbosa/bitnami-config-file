@@ -34,7 +34,7 @@ function credentials(){
   echo "--------------------------------------------------------------"
   echo "------------------------- Seu IP -----------------------------"
   sudo ifconfig
-  sleep 60
+  sleep 5
 }
 
 function downloadPostREST(){
@@ -45,9 +45,9 @@ function downloadPostREST(){
 
 function configFilePOSTGREST(){
   touch tutorial.conf
-  echo db-uri = "postgres://authenticator:passwd@127.0.0.1:5432/postgres" >> tutorial.conf
-  echo db-schemas = "public" >> tutorial.conf
-  echo db-anon-role = "web_anon" >> tutorial.conf
+  echo "db-uri = \"postgres://authenticator:passwd@127.0.0.1:5432/postgres\"" >> tutorial.conf
+  echo "db-schemas = \"public\"" >> tutorial.conf
+  echo "db-anon-role = \"web_anon\"" >> tutorial.conf
 }
 
 function permisionTutorial(){
