@@ -33,4 +33,4 @@ Para isso devemos instalar o seguintes programas:
 > chmod +x ./init-basic-config.sh
 
 - Exc. o scipt em modo de super Usuario
-> sudo ./init-basic-config.sh
+> ./init-basic-config.sh
