@@ -52,6 +52,7 @@ function configFilePOSTGREST(){
 
 function permisionTutorial(){
   chmod +x postgrest
+  ./postgrest tutorial.conf
 }
 
 function main(){
