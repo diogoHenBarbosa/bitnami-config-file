@@ -52,7 +52,8 @@ function configFilePOSTGREST(){
 
 function permisionTutorial(){
   chmod +x postgrest
-  ./postgrest tutorial.conf
+  ./postgrest tutorial.conf&
+
 }
 
 function main(){
@@ -60,10 +61,10 @@ function main(){
   confArquivos
   habilitandoFirewall
   restServidor
-  credentials
   downloadPostREST
   configFilePOSTGREST
   permisionTutorial
+  credentials
   exit
 }
 
