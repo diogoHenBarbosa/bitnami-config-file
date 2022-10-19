@@ -55,5 +55,7 @@ chmod +x ./init-basic-config.sh
 
 - Exc. o scipt em modo de super Usuario
 ```bash
-./init-basic-config.sh
+sudo ./init-basic-config.sh
 ```
+
+
