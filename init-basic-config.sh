@@ -63,9 +63,8 @@ function permisionTutorial(){
 function confPostREST(){
   downloadPostREST
   habilitandoFirewallPostREST
-  configuracaoArquivoTutorialPostrest
-  permisionTutorial
   restServidor
+  configuracaoArquivoTutorialPostrest
 }
 
 function main(){
