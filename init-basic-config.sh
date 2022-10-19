@@ -15,11 +15,11 @@ function confArquivos(){
   clear
 }
 
-function habilitandoFirewall(){
-  echo "Habilitando Firewall"
+function habilitandoFirewallPostgresql(){
+  echo "Habilitando Firewall do Postgresql"
   sudo ufw allow 5432
-  sudo ufw allow 3000
   sleep 5
+
 }
 
 function restServidor(){
@@ -37,33 +37,43 @@ function credentials(){
   sleep 5
 }
 
+function habilitandoFirewallPostREST(){
+  echo "Habilitando Firewall do PostREST"
+  sudo ufw allow 3000
+  sleep 5
+
+}
+
 function downloadPostREST(){
   wget https://github.com/PostgREST/postgrest/releases/download/v10.0.0/postgrest-v10.0.0-linux-static-x64.tar.xz
 
   tar -xvf postgrest-v10.0.0-linux-static-x64.tar.xz
 }
 
-function configFilePOSTGREST(){
-  touch tutorial.conf
-  echo "db-uri = \"postgres://authenticator:passwd@127.0.0.1:5432/postgres\"" >> tutorial.conf
-  echo "db-schemas = \"public\"" >> tutorial.conf
-  echo "db-anon-role = \"web_anon\"" >> tutorial.conf
+function configuracaoArquivoTutorialPostrest(){
+  cp ./conf/postgrest/tutorial.conf .
+  
 }
 
-function permisionTutorial(){
-  chmod +x postgrest
-  ./postgrest tutorial.conf&
 
+function permisionTutorial(){
+  ./postgrest tutorial.conf&
+}
+
+function confPostREST(){
+  downloadPostREST
+  habilitandoFirewallPostREST
+  configuracaoArquivoTutorialPostrest
+  permisionTutorial
+  restServidor
 }
 
 function main(){
   attEinstallDep
   confArquivos
-  habilitandoFirewall
+  habilitandoFirewallPostgresql
   restServidor
-  downloadPostREST
-  configFilePOSTGREST
-  permisionTutorial
+  confPostREST
   credentials
   exit
 }
