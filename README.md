@@ -1,18 +1,17 @@
 # Configuração da MV Bitnami - Fatec de Cotia - 2022
 
-A criação desse projeto para ajuda em nossa aula de banco de dados. Esse script foi feito em bash e tem como finalidade configurar uma máquina virtual e expor ela em nossa rede, para isso modificando dois arquivos o pg_**, postgresql.conf e habilitação do firewall.
-
-| :placard: Vitrine.Dev |     |
-| -------------  | --- |
-| :sparkles: Nome        | **Configuração da maquina Bitnami**
+| :placard: Conf. Bitnami|    |
+| -------------  | ------------------------------------|
+| :sparkles: Nome     | **Configuração da maquina Bitnami**
 | :label: Tecnologias | Bash (tecnologias utilizadas)
-| :rocket: URL | ISO         | https://fatecspgov-my.sharepoint.com/:u:/g/personal/diogo_barbosa4_fatec_sp_gov_br/EQytHfNn3XNIqygN4V7OCgABO1iatjOFTBfP6RrULbfKZw?e=W0y5ZU
-| :fire: VMWARE     | https://www.vmware.com
 
-<!-- Inserir imagem com a #vitrinedev ao final do link -->
+
 ![](https://via.placeholder.com/1200x500.png?text=imagem+lindona+do+meu+projeto#vitrinedev)
 
 ## Detalhes do projeto
+A criação desse projeto para ajuda em nossa aula de banco de dados. Esse script foi feito em bash e tem como finalidade configurar uma máquina virtual e expor ela em nossa rede, para isso modificando dois arquivos postgresql.conf e habilitação do firewall.
+
+Agora pode configurar o PostREST.
 
 ### Ambiente 
 Para isso devemos instalar o seguintes programas:
@@ -24,7 +23,7 @@ Para isso devemos instalar o seguintes programas:
 ```bash
 https://fatecspgov-my.sharepoint.com/:u:/g/personal/diogo_barbosa4_fatec_sp_gov_br/EQytHfNn3XNIqygN4V7OCgABO1iatjOFTBfP6RrULbfKZw?e=W0y5ZU
 ```
-## Recomendações
+### Recomendações
 
 - Esse script deve ser rodado em um server Bitnami
 
@@ -53,5 +52,5 @@ chmod +x ./init-basic-config.sh
 
 - Exc. o scipt em modo de super Usuario
 ```bash
-./init-basic-config.sh
+sudo ./init-basic-config.sh
 ```
