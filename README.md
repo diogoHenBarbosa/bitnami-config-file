@@ -42,7 +42,7 @@ sudo apt-get install git
 ```
 - Clonando o repositorio.
 ```bash
-git clone https://github.com/diogoHenBarbosa/bitnami-config-file
+git clone https://github.com/diogoHenBarbosa/bitnami-config-file.git
 ```
 - Indo para o diretorio.
 ```bash
