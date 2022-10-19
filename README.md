@@ -5,11 +5,13 @@ A criação desse projeto para ajuda em nossa aula de banco de dados. Esse scrip
 Para isso devemos instalar o seguintes programas:
 
 **VMWare**
-> https://www.vmware.com
-
+```bash
+https://www.vmware.com
+```
 **VM - Bitnami - Fatec**
-> https://fatecspgov-my.sharepoint.com/:u:/g/personal/diogo_barbosa4_fatec_sp_gov_br/EQytHfNn3XNIqygN4V7OCgABO1iatjOFTBfP6RrULbfKZw?e=W0y5ZU
-
+```bash
+https://fatecspgov-my.sharepoint.com/:u:/g/personal/diogo_barbosa4_fatec_sp_gov_br/EQytHfNn3XNIqygN4V7OCgABO1iatjOFTBfP6RrULbfKZw?e=W0y5ZU
+```
 ## Recomendações
 
 - Esse script deve ser rodado em um server Bitnami
@@ -21,16 +23,23 @@ Para isso devemos instalar o seguintes programas:
 ### Modo de Exec.
 
 - Instalando o Git na maquina.
-> sudo apt-get install git
-
+```bash
+sudo apt-get install git
+```
 - Clonando o repositorio.
-> git clone https://github.com/diogoHenBarbosa/bitnami-config-file
-
+```bash
+git clone https://github.com/diogoHenBarbosa/bitnami-config-file
+```
 - Indo para o diretorio.
-> cd bitnami-config-file
-
+```bash
+cd bitnami-config-file
+```
 - Dando direito de exec. para o script.
-> chmod +x ./init-basic-config.sh
+```bash
+chmod +x ./init-basic-config.sh
+```
 
 - Exc. o scipt em modo de super Usuario
-> ./init-basic-config.sh
+```bash
+./init-basic-config.sh
+```
