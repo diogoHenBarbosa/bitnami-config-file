@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 function exportPort(){
-    export PORT_POSTGRESQL= 5432
-    export PORT_POSTREST= 3000
+    export PORT_POSTGRESQL="5432"
+    export PORT_POSTREST="3000"
     export USER= "postgres"
 }
 function attEinstallDep(){
