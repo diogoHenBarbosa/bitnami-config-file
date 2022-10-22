@@ -69,9 +69,6 @@ function variaveisDeAmbientePOSTREST(){
     export command-5="grant web_anon to authenticator;"
     
 }
-
-function
-
 function excREST(){
     ./postgrest tutorial.conf&
 }
