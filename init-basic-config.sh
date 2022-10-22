@@ -4,6 +4,11 @@ function exportPort(){
     export PORT_POSTREST="3000"
     export USER= "postgres"
 }
+
+function defineSenhaPostgres(){
+    export PASSWORD_POSTGRESQL= 'grep "\'************\'" ./bitnami_credentials | cut -b 54-65"
+}
+
 function attEinstallDep(){
     sudo apt-get update -y
     sudo apt-get upgrade -y
@@ -40,7 +45,6 @@ function credentials(){
     sudo ifconfig
     echo "--------------------------------------------------------------"
     echo "Digte a senha do seu arquivo postgresql:   "
-    read PASSWORD_POSTGRESQL
     sleep 60
 }
 
@@ -62,11 +66,11 @@ function configuracaoArquivoTutorialPostrest(){
 }
 
 function variaveisDeAmbientePOSTREST(){
-    export comand-1="create role web_anon nologin;"
-    export command-2="grant usage on schema public to web_anon;"
-    export command-3="grant select on public.aisles to web_anon;"
-    export command-4="create role authenticator noinherit login password 'passwd';"
-    export command-5="grant web_anon to authenticator;"
+    export command1="create role web_anon nologin;"
+    export command2="grant usage on schema public to web_anon;"
+    export command3="grant select on public.aisles to web_anon;"
+    export command4="create role authenticator noinherit login password 'passwd';"
+    export command5="grant web_anon to authenticator;"
     
 }
 function excREST(){
@@ -77,7 +81,7 @@ function confPostREST(){
     echo "Deseja Configurar o PostREST"
     select i in "Sim" "Não"
     do
-        case $i in
+        case $i in2sx
             "Sim")
                 variaveisDeAmbientePOSTREST
                 downloadPostREST
