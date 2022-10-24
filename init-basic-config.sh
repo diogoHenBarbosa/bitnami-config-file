@@ -7,6 +7,10 @@ function exportPort(){
 
 function defineSenhaPostgres(){
     export PASSWORD_POSTGRESQL= 'grep "\'************\'" ./bitnami_credentials | cut -b 54-65"
+    echo $PASSWORD_POSTGRESQL
+    echo $PORT_POSTGRESQL
+    echo $PORT_POSTREST
+    echo $USER
 }
 
 function attEinstallDep(){
@@ -84,6 +88,7 @@ function confPostREST(){
         case $i in2sx
             "Sim")
                 variaveisDeAmbientePOSTREST
+                defineSenhaPostgres
                 downloadPostREST
                 habilitandoFirewallPostREST
                 restServidor
