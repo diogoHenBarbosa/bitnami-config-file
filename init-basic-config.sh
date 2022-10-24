@@ -85,7 +85,7 @@ function confPostREST(){
     echo "Deseja Configurar o PostREST"
     select i in "Sim" "Não"
     do
-        case $i in2sx
+        case $i 
             "Sim")
                 variaveisDeAmbientePOSTREST
                 defineSenhaPostgres
