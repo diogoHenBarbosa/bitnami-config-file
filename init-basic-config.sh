@@ -6,7 +6,7 @@ function exportPort(){
 }
 
 function defineSenhaPostgres(){
-    export PASSWORD_POSTGRESQL= 'grep "\'************\'" ./bitnami_credentials | cut -b 54-65"
+    export PASSWORD_POSTGRESQL= "$(grep "asd" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
     echo $PASSWORD_POSTGRESQL
     echo $PORT_POSTGRESQL
     echo $PORT_POSTREST
