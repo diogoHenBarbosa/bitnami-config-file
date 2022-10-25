@@ -86,7 +86,7 @@ function confPostREST(){
     select i in "Sim" "Não"
     do
         case $i in 
-            "sim "
+            "sim")
                 variaveisDeAmbientePOSTREST
                 defineSenhaPostgres
                 downloadPostREST
@@ -96,6 +96,10 @@ function confPostREST(){
                 excREST
             ;;
             "nao")
+                break
+            ;;
+
+            *)
                 continue
             ;;
         esac
