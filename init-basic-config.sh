@@ -82,11 +82,11 @@ function excREST(){
 }
 
 function confPostREST(){
-    echo "Deseja Configurar o PostREST"
+    echo "Deseja Configurar o PostREST - 1 ou 2 "
     select i in "Sim" "Não"
     do
-        case $i in 
-            "sim")
+        case $i in
+            "Não")
                 variaveisDeAmbientePOSTREST
                 defineSenhaPostgres
                 downloadPostREST
@@ -95,18 +95,15 @@ function confPostREST(){
                 configuracaoArquivoTutorialPostrest
                 excREST
             ;;
-            "nao")
+            "Sim")
                 break
             ;;
-
+            
             *)
                 continue
             ;;
         esac
     done
-    
-    
-    
 }
 
 
