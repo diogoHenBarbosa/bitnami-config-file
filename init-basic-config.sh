@@ -14,9 +14,9 @@ function defineSenhaPostgres(){
 }
 
 function attEinstallDep(){
-    sudo apt-get update -y
-    sudo apt-get upgrade -y
-    sudo apt-get install net-tools nmap mc -y
+    sudo apt-get update -Y
+    sudo apt-get upgrade -Y
+    sudo apt-get install net-tools nmap mc -Y
     clear
 }
 
@@ -30,7 +30,6 @@ function confArquivos(){
 function habilitandoFirewallPostgresql(){
     echo "Habilitando Firewall do Postgresql"
     sudo ufw allow $PORT_POSTGRESQL
-    
 }
 
 function restServidor(){
@@ -39,14 +38,13 @@ function restServidor(){
     clear
 }
 function credentials(){
-    echo "Vai ficar nesta tela por 60 segundos!"
     cat /home/bitnami/bitnami_credentials
     echo "--------------------------------------------------------------"
     echo "------------------------- Seu IP -----------------------------"
     sudo ifconfig
     echo "--------------------------------------------------------------"
-    echo "Digte a senha do seu arquivo postgresql:   "
-    sleep 60
+    echo "Aperte Ctrl+C para sair"
+    sleep 600
 }
 
 function habilitandoFirewallPostREST(){
