@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-function exportPort(){
-    export PORT_POSTGRESQL="5432"
-    export PORT_POSTREST="3000"
-    export USER= "postgres"
-}
 
-function defineSenhaPostgres(){
-    export PASSWORD_POSTGRESQL= "$(grep "asd" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
+PORT_POSTGRESQL="5432"
+PORT_POSTREST="3000"
+USER= "postgres"
+PASSWORD_POSTGRESQL= "$(grep "asd" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
+
+
+function defineSenhaPostgres(){ 
     echo $PASSWORD_POSTGRESQL
     echo $PORT_POSTGRESQL
     echo $PORT_POSTREST
@@ -38,7 +38,7 @@ function habilitandoFirewallPostgresql(){
 function restServidor(){
     echo "Rest. Servidor"
     sudo service bitnami restart postgresql
-    sleep 10
+    sleep 5
     clear
 }
 function credentials(){
@@ -53,6 +53,7 @@ function credentials(){
 }
 
 function habilitandoFirewallPostREST(){
+    clear
     echo "Habilitando Firewall do PostREST"
     sudo ufw allow $PORT_POSTREST
     sleep 5
@@ -61,7 +62,6 @@ function habilitandoFirewallPostREST(){
 
 function downloadPostREST(){
     wget https://github.com/PostgREST/postgrest/releases/download/v10.0.0/postgrest-v10.0.0-linux-static-x64.tar.xz
-    
     tar -xvf postgrest-v10.0.0-linux-static-x64.tar.xz
 }
 
@@ -78,12 +78,12 @@ function variaveisDeAmbientePOSTREST(){
     
 }
 function excREST(){
-    ./postgrest tutorial.conf&
+    ./postgrest tutorial.conf
 }
 
 function confPostREST(){
     echo "Deseja Configurar o PostREST - 1 ou 2 "
-    select i in "Sim" "Não"
+    select i in Sim Não
     do
         case $i in
             "Sim")
