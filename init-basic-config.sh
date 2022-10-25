@@ -21,9 +21,14 @@ function confArquivos(){
 }
 
 function ajusteParaOPostREST(){
-    PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres --command=\l
-
+    
+    for ((i=0; i<= ${#COMMNAD_POSTGREST[@]}; i++))
+    do
+        PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres --command=${COMMNAD_POSTGREST[i]}
+    done
+  
 }
+
 function habilitandoFirewallPostgresql(){
     echo "Habilitando Firewall do Postgresql"
     sudo ufw allow $PORT_POSTGRESQL
