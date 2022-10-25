@@ -6,14 +6,6 @@ PORT_POSTREST="3000"
 USER_POSTGRES="postgres"
 PASSWORD_POSTGRESQL=$(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)
 
-
-function defineSenhaPostgres(){
-    echo $PORT_POSTGRESQL
-    echo $PORT_POSTREST
-    echo $USER_POSTGRES
-    echo $PASSWORD_POSTGRESQL
-}
-
 function attEinstallDep(){
     sudo apt-get update -Y
     sudo apt-get upgrade -Y
@@ -64,16 +56,22 @@ function excREST(){
     ./postgrest ./conf/postgrest/tutorial.conf
 }
 
+function infRest(){
+    clear
+    echo "Espere a Conf. do PostREST!"
+    sleep 5
+}
+
+
 function confPostREST(){
     echo "Deseja Configurar o PostREST - 1 ou 2 "
     select i in Sim Não
     do
         case $i in
             "Sim")
-                defineSenhaPostgres
-                sleep 30
                 downloadPostREST
                 habilitandoFirewallPostREST
+                infRest
                 restServidor
                 credentials
                 excREST
@@ -98,6 +96,7 @@ function main(){
     restServidor
     confPostREST
     credentials
+    PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres
     exit
 }
 
