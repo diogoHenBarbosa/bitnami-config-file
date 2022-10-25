@@ -2,8 +2,9 @@
 
 PORT_POSTGRESQL="5432"
 PORT_POSTREST="3000"
-USER_POSTGRES= "postgres"
-PASSWORD_POSTGRESQL= grep "postgres" $HOME/bitnami_credentials | cut -b 54-65
+USER_POSTGRES="postgres"
+PASSWORD_POSTGRESQL= $(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)
+COMMNAD_POSTGREST=("create role web_anon nologin;" "grant usage on schema public to web_anon;" "grant select on public.aisles to web_anon;" "create role authenticator noinherit login password 'passwd';" "grant web_anon to authenticator;")
 
 
 function defineSenhaPostgres(){
@@ -44,7 +45,7 @@ function credentials(){
     sudo ifconfig
     echo "--------------------------------------------------------------"
     echo "Aperte Ctrl+C para sair"
-    sleep 600
+    sleep 60
 }
 
 function habilitandoFirewallPostREST(){
@@ -56,22 +57,11 @@ function habilitandoFirewallPostREST(){
 function downloadPostREST(){
     wget https://github.com/PostgREST/postgrest/releases/download/v10.0.0/postgrest-v10.0.0-linux-static-x64.tar.xz
     tar -xvf postgrest-v10.0.0-linux-static-x64.tar.xz
+    rm postgrest-v10.0.0-linux-static-x64.tar.xz
 }
 
-function configuracaoArquivoTutorialPostrest(){
-    cp ./conf/postgrest/tutorial.conf .
-}
-
-function variaveisDeAmbientePOSTREST(){
-    export command1="create role web_anon nologin;"
-    export command2="grant usage on schema public to web_anon;"
-    export command3="grant select on public.aisles to web_anon;"
-    export command4="create role authenticator noinherit login password 'passwd';"
-    export command5="grant web_anon to authenticator;"
-    
-}
 function excREST(){
-    ./postgrest tutorial.conf
+    ./postgrest .conf/postgrest/tutorial.conf
 }
 
 function confPostREST(){
@@ -87,6 +77,7 @@ function confPostREST(){
                 habilitandoFirewallPostREST
                 restServidor
                 configuracaoArquivoTutorialPostrest
+                credentials
                 excREST
             ;;
             "Não")
