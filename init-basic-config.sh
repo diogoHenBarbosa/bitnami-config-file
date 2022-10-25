@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
+COMMNAD_POSTGREST=("create role web_anon nologin;" "grant usage on schema public to web_anon;" "grant select on public.aisles to web_anon;" "create role authenticator noinherit login password 'passwd';" "grant web_anon to authenticator;")
 PORT_POSTGRESQL="5432"
 PORT_POSTREST="3000"
 USER_POSTGRES="postgres"
-PASSWORD_POSTGRESQL= $(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)
-COMMNAD_POSTGREST=("create role web_anon nologin;" "grant usage on schema public to web_anon;" "grant select on public.aisles to web_anon;" "create role authenticator noinherit login password 'passwd';" "grant web_anon to authenticator;")
+PASSWORD_POSTGRESQL=$(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)
 
 
 function defineSenhaPostgres(){
-    echo $PASSWORD_POSTGRESQL
     echo $PORT_POSTGRESQL
     echo $PORT_POSTREST
     echo $USER_POSTGRES
+    echo $PASSWORD_POSTGRESQL
 }
 
 function attEinstallDep(){
@@ -61,7 +61,7 @@ function downloadPostREST(){
 }
 
 function excREST(){
-    ./postgrest .conf/postgrest/tutorial.conf
+    ./postgrest ./conf/postgrest/tutorial.conf
 }
 
 function confPostREST(){
@@ -70,13 +70,11 @@ function confPostREST(){
     do
         case $i in
             "Sim")
-                variaveisDeAmbientePOSTREST
                 defineSenhaPostgres
                 sleep 30
                 downloadPostREST
                 habilitandoFirewallPostREST
                 restServidor
-                configuracaoArquivoTutorialPostrest
                 credentials
                 excREST
             ;;
