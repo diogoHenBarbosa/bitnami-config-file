@@ -105,7 +105,6 @@ function confPostREST(){
 
 
 function main(){
-    exportPort
     attEinstallDep
     confArquivos
     habilitandoFirewallPostgresql
