@@ -7,9 +7,9 @@ USER_POSTGRES="postgres"
 PASSWORD_POSTGRESQL=$(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)
 
 function attEinstallDep(){
-    sudo apt-get update -Y
-    sudo apt-get upgrade -Y
-    sudo apt-get install net-tools nmap mc -Y
+    sudo apt-get update -y
+    sudo apt-get upgrade -y
+    sudo apt-get install net-tools nmap mc -y
     clear
 }
 
@@ -20,6 +20,10 @@ function confArquivos(){
     clear
 }
 
+function ajusteParaOPostREST(){
+    PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres --command=\l
+
+}
 function habilitandoFirewallPostgresql(){
     echo "Habilitando Firewall do Postgresql"
     sudo ufw allow $PORT_POSTGRESQL
@@ -30,6 +34,7 @@ function restServidor(){
     sudo service bitnami restart postgresql
     clear
 }
+
 function credentials(){
     cat /home/bitnami/bitnami_credentials
     echo "--------------------------------------------------------------"
@@ -96,7 +101,6 @@ function main(){
     restServidor
     confPostREST
     credentials
-    PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres
     exit
 }
 
