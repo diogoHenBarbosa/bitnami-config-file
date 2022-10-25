@@ -3,7 +3,7 @@
 PORT_POSTGRESQL="5432"
 PORT_POSTREST="3000"
 USER_POSTGRES= "postgres"
-PASSWORD_POSTGRESQL= "$(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)"
+PASSWORD_POSTGRESQL= grep "postgres" $HOME/bitnami_credentials | cut -b 54-65
 
 
 function defineSenhaPostgres(){
