@@ -2,15 +2,15 @@
 
 PORT_POSTGRESQL="5432"
 PORT_POSTREST="3000"
-USER= "postgres"
-PASSWORD_POSTGRESQL= "$(grep "postgres" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
+USER_POSTGRES= "postgres"
+PASSWORD_POSTGRESQL= "$(grep "postgres" $HOME/bitnami_credentials | cut -b 54-65)"
 
 
 function defineSenhaPostgres(){
     echo $PASSWORD_POSTGRESQL
     echo $PORT_POSTGRESQL
     echo $PORT_POSTREST
-    echo $USER
+    echo $USER_POSTGRES
 }
 
 function attEinstallDep(){
