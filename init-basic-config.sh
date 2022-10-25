@@ -3,10 +3,10 @@
 PORT_POSTGRESQL="5432"
 PORT_POSTREST="3000"
 USER= "postgres"
-PASSWORD_POSTGRESQL= "$(grep "asd" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
+PASSWORD_POSTGRESQL= "$(grep "postgres" /home/diogo-notebook-ubuntu/bitnami_credentials | cut -b 54-65)"
 
 
-function defineSenhaPostgres(){ 
+function defineSenhaPostgres(){
     echo $PASSWORD_POSTGRESQL
     echo $PORT_POSTGRESQL
     echo $PORT_POSTREST
@@ -24,21 +24,18 @@ function confArquivos(){
     echo "Conf. os arquivos"
     sudo cp ./conf/pg_hba.conf /opt/bitnami/postgresql/conf/pg_hba.conf
     sudo cp ./conf/postgresql.conf /opt/bitnami/postgresql/conf/postgresql.conf
-    sleep 5
     clear
 }
 
 function habilitandoFirewallPostgresql(){
     echo "Habilitando Firewall do Postgresql"
     sudo ufw allow $PORT_POSTGRESQL
-    sleep 5
     
 }
 
 function restServidor(){
     echo "Rest. Servidor"
     sudo service bitnami restart postgresql
-    sleep 5
     clear
 }
 function credentials(){
@@ -56,8 +53,6 @@ function habilitandoFirewallPostREST(){
     clear
     echo "Habilitando Firewall do PostREST"
     sudo ufw allow $PORT_POSTREST
-    sleep 5
-    
 }
 
 function downloadPostREST(){
@@ -89,6 +84,7 @@ function confPostREST(){
             "Sim")
                 variaveisDeAmbientePOSTREST
                 defineSenhaPostgres
+                sleep 30
                 downloadPostREST
                 habilitandoFirewallPostREST
                 restServidor
