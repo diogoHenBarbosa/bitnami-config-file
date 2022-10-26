@@ -21,7 +21,6 @@ function confArquivos(){
 }
 
 function ajusteParaOPostREST(){
-    
     for ((i=0; i<= ${#COMMNAD_POSTGREST[@]}; i++))
     do
         PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres --command=${COMMNAD_POSTGREST[i]}
@@ -86,7 +85,6 @@ function confPostREST(){
                 restServidor
                 ajusteParaOPostREST
                 credentials
-                ajusteParaOPostREST
                 excREST
             ;;
             "Não")
