@@ -23,9 +23,12 @@ function confArquivos(){
 function ajusteParaOPostREST(){
     for ((i=0; i<= ${#COMMNAD_POSTGREST[@]}; i++))
     do
-        PGPASSWORD=$PASSWORD_POSTGRESQL psql -h localhost -p 5432 -U postgres --command=${COMMNAD_POSTGREST[i]}
+        echo ${COMMNAD_POSTGREST[i]}
         sleep 3
     done
+    clear
+    echo "Realize a conf. seguindo os comandos"
+    
     
 }
 
